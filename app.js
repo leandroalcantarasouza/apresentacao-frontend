@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-var apiProxy = proxy('/api/*', {target: 'http://teste2:8080/'});
+var apiProxy = proxy('/api/*', {target: 'http://teste:8080/'});
 app.use(apiProxy);
 
 
