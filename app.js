@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 console.log(process.env.BACKEND_ADDRESS);
-var apiProxy = proxy('/api/*', {target: 'http://teste.leandro-testing.svc.cluster.local:8080'});
+var apiProxy = proxy('/api/*', {target: `http://${process.env.BACKEND_ADDRESS}:8080`});
 app.use(apiProxy);
 
 
