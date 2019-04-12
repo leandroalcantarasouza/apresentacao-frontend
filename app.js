@@ -17,7 +17,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-var apiProxy = proxy('/api/*', {target: `http://apresentacao-backend:8080/`});
+console.log("variavel de ambiente uri"+ process.env.BACKEND_URI);
+console.log("variavel de ambiente porta"+ process.env.BACKEND_PORT);
+var apiProxy = proxy('/api/*', {target: `http://${process.env.BACKEND_URI}:${process.env.BACKEND_PORT}/`});
 app.use(apiProxy);
 
 module.exports = app;
