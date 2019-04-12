@@ -6,8 +6,6 @@ services:
     container_name: apresentacao-frontend
     ports:
       - "81:80"
-    environment:
-      BACKEND_URI: apresentacao-backend
     networks:
       - default
   backend:
