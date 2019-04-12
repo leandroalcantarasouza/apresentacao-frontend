@@ -1,13 +1,19 @@
 <html>
 
 <head>
+  <meta charset="UTF-8">
   <title>Express</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
-  <h1>Express</h1>
-  <p>Welcome to Express amanha</p>
+  <h1>Express </h1>
+  <p>Welcome to Express</p>
+  <p id="amanha"></p>
+  <script>
+    var now = new Date();
+    document.getElementById("amanha").innerHTML = now;
+  </script>
   <a href="/api/ola">Olá</a>
 </body>
 
