@@ -1,9 +1,14 @@
-FROM node:10.15.3
+FROM node:10.15.3 as node
 # replace this with your application's default port
-EXPOSE 3000
+WORKDIR /usr/src/app
 COPY . .
-ARG BACKEND_URI_PARAMETER
-ENV BACKEND_URI=$BACKEND_URI_PARAMETER
-ENV BACKEND_PORT=8080
 RUN npm install
-ENTRYPOINT ["npm","start"]
+
+FROM nginx:1.15.11
+MAINTAINER Leandro Souza <leandro.alcantara.souza@gmail.com>
+WORKDIR /usr/src/app
+COPY --from=node /usr/src/app/public/ /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/
+COPY default.conf /etc/nginx/conf.d/
+EXPOSE 80
+ENTRYPOINT exec nginx -g 'daemon off;'
