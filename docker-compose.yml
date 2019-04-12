@@ -6,6 +6,10 @@ services:
     container_name: apresentacao-frontend
     ports:
       - "81:80"
+    volumes:
+      - /var/lib/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - /var/lib/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      #- /var/lib/nginx/public:/usr/share/nginx/html
     networks:
       - default
   backend:
