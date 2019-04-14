@@ -7,9 +7,12 @@ services:
     ports:
       - "81:80"
     volumes:
-      - /var/lib/nginx/nginx.conf:/etc/nginx/nginx.conf
-      - /var/lib/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      #minikube
+      #- /var/lib/nginx/nginx.conf:/etc/nginx/nginx.conf
+      #- /var/lib/nginx/default.conf:/etc/nginx/conf.d/default.conf
       #- /var/lib/nginx/public:/usr/share/nginx/html
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./default.conf:/etc/nginx/conf.d/default.conf
     networks:
       - default
   backend:
