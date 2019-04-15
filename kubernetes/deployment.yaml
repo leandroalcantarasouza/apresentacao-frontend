@@ -20,9 +20,9 @@ spec:
       - image: apresentacao-frontend:node
         name: apresentacao-frontend-node
         imagePullPolicy: Never
-        env:
-          - name: BACKEND_URI
-            value: "service-apresentacao-backend" #name do service do backend
+        envFrom: #puxa todas as configuracoes a partir do config map (as chaves e valores vem do arquivo)
+          - configMapRef:
+              name: config-map-apresentacao-frontend-node
         ports:
           - containerPort: 3000
         resources: {}

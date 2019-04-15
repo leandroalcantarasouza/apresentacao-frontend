@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app: apresentacao-frontend-node
+  name: config-map-apresentacao-frontend-node
+  namespace: apresentacao
+data:
+  BACKEND_URI: service-apresentacao-backend
+
