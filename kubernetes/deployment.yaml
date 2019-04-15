@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - image: apresentacao-frontend:node
-        name: apresentacao-frontend
+        name: apresentacao-frontend-node
         imagePullPolicy: Never
         env:
           - name: BACKEND_URI
