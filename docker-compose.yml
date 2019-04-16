@@ -2,7 +2,7 @@ version: '3.7'
 services:
   web:
     #build: .
-    image: apresentacao-frontend
+    image: apresentacao-frontend:node
     container_name: apresentacao-frontend
     ports:
       - "3000:3000"
@@ -11,7 +11,7 @@ services:
     networks:
       - default
   backend:
-    image: apresentacao-backend:latest
+    image: apresentacao-backend:java
     container_name: apresentacao-backend
     ports:
       - "8080:8080"
