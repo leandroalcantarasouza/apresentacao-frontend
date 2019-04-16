@@ -10,7 +10,6 @@ spec:
   selector:
     matchLabels:
       app: apresentacao-frontend-node
-  strategy: {}
   template:
     metadata:
       labels:
@@ -25,5 +24,3 @@ spec:
               name: config-map-apresentacao-frontend-node
         ports:
           - containerPort: 3000
-        resources: {}
-status: {}

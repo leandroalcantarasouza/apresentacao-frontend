@@ -6,11 +6,16 @@ metadata:
   name: ingress-apresentacao-frontend-node
   annotations:
     kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  backend:
+    serviceName: default-http-backend
+    servicePort: 80
   rules:
-    - http:
+    - host: apresentacao-frontend.node #verificar host com cloud provider
+      http:
         paths:
-          - path: /
+          - path: /*
             backend:
               serviceName: service-apresentacao-frontend-node
               servicePort: 3000
