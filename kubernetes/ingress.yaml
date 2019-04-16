@@ -12,8 +12,8 @@ spec:
     serviceName: default-http-backend
     servicePort: 80
   rules:
-    - host: apresentacao-frontend.node #verificar host com cloud provider
-      http:
+    #- host: apresentacao-frontend.node #verificar host com cloud provider
+    -  http:
         paths:
           - path: /*
             backend:
