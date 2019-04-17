@@ -2,17 +2,16 @@ version: '3.7'
 services:
   web:
     #build: .
-    image: apresentacao-frontend:node
+    image: apresentacao-frontend:nginx
     container_name: apresentacao-frontend
     ports:
       - "81:80"
     volumes:
       - /var/lib/nginx/default.conf:/etc/nginx/conf.d/default.conf #configuracao minikube
-      - /var/lib/nginx/nginx.conf:/etc/nginx/nginx.conf #configuracao minikube
-      #- ./nginx.conf:/etc/nginx/nginx.conf #configuracao local
       #- ./default.conf:/etc/nginx/conf.d/default.conf #configuracao local
     environment:
       - BACKEND_URI=apresentacao-backend
+      - BACKEND_PORT=8080
     networks:
       - default
   backend:
@@ -21,9 +20,9 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - /var/lib/logback/logback-logstash.xml:/etc/configuration/logback.xml #configuracao minikube
+      #- /var/lib/logback/logback-logstash.xml:/etc/configuration/logback.xml #configuracao minikube
       #- /home/leandro/projetos/apresentacao-backend/src/kubernetes/logback-logstash.xml:/etc/configuration/logback.xml  #configuracao docker local
     networks:
       - default
-    environment:
-      - LOGGING_CONFIG=file:/etc/configuration/logback.xml
+    #environment:
+    #  - LOGGING_CONFIG=file:/etc/configuration/logback.xml
